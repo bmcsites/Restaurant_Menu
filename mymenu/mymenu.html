@@ -1,0 +1,19 @@
+<div class="menu-box">
+    <input type='text' ng-model='vm.mysearch' placeholder="Search.." />
+    <div class="menu-type" ng-repeat="menucat in vm.menu | filter: vm.mysearch">
+       <h3>...{{menucat.Name}}...</h3>
+       <p>{{menucat.Description}}</p>
+        <menu-item items='menucat.Items' mysearch="vm.mysearch" cat="{{menucat.Name}}"></menu-item>
+       <div class="sub-menu" ng-repeat="subitem in menucat.Classes  | filter: vm.mysearch">
+           <h4>{{subitem.Name}}</h4>
+           <span>{{subitem.Description}}</span>
+           <menu-item items="subitem.Items" mysearch="vm.mysearch" cat="{{subitem.Name}}"></menu-item>
+       </div>
+   </div>
+    <div class="spinner" ng-show="vm.spinner">
+        <div class="load-text">
+            <h3 class="animated infinite pulse">loading...</h3>
+        </div>
+
+    </div>
+</div>

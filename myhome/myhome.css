@@ -1,0 +1,43 @@
+myhome h1,
+myhome h2,
+myhome h3,
+myhome h4,
+myhome p {
+  text-align: center;
+  color: white;
+}
+myhome button.btn-info {
+  margin: 0 auto;
+  display: block;
+}
+myhome > h1 {
+  font-size: 92px;
+  font-family: 'Alex Brush', cursive;
+  margin: 0;
+  padding: 0;
+  line-height: 91px;
+  margin-bottom: 20px;
+}
+myhome > button {
+  cursor: pointer;
+  border: none;
+  color: white;
+  font-size: 20px;
+  background: #a6a6a6;
+  border-radius: 5px;
+  padding: 10px;
+}
+myhome > button:hover {
+  box-shadow: none;
+  outline: 0;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+  background: #b9b9b9;
+}
+myhome > button:focus {
+  box-shadow: none;
+  outline: 0;
+}
+myhome.focus {
+  box-shadow: none;
+  outline: 0;
+}

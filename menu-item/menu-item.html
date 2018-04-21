@@ -1,0 +1,25 @@
+<div class="menu-item" ng-repeat="menuitem in vm.items | filter: vm.mysearch | orderBy: '-Name' : true">
+    <div class="menu-item-img">
+        <img width="100" height="100" src="{{menuitem.photos}}">
+        <span class="item-id">item no. {{menuitem.id}}</span>
+    </div>
+    <div class="menu-item-content">
+        <div class="menu-item-top">
+            <h5>{{menuitem.Name}}</h5>
+            <div class="dot"></div>
+            <span class="price">&#36;{{menuitem.Price}}</span>
+        </div>
+        <div class="menu-item-bottom">
+            <p>{{menuitem.Description}}</p>
+        </div>
+        <button ng-show="menuitem.ModifierGroups !== undefined" ng-init="active = !active" ng-click="active = !active">Click for Options</button>
+        <div class="mod" ng-repeat="modtopic in menuitem.ModifierGroups" ng-hide="active">
+            <fieldset>
+                <legend>{{modtopic.Name}}</legend>
+                <div class="options" ng-repeat="opt in modtopic.Modifiers">
+                    <input type="checkbox" name="{{opt.Name}}" />{{opt.Name}}
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
