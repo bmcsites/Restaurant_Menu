@@ -1,27 +1,28 @@
-function mymenuController($http) {
+class mymenuController {
+    constructor ($http) {
+        this.spinner = false;
+        this.mysearch = '';
+        this.url = 'https://mycheck-menus-dev.s3.amazonaws.com/9272/menu_general.json';
+        this.http = $http;
+        this.menu = [];
+        this.dbCall();
+    }
 
-    this.menu = [];
-    this.spinner = false;
-    this.mysearch = '';
-
-    this.dbCall = () => {
+    dbCall() {
         this.spinner = true;
-        let url = 'https://mycheck-menus-dev.s3.amazonaws.com/9272/menu_general.json';
-        $http.get(url)
+        this.http.get(this.url)
             .then( (response) => {
                 return response.data;
             }, err => {
+                this.spinner = false;
                 console.log('error :', err);
-                this.spinner = false;
             }).then((data) => {
-                data.shift();
-                this.menu = data;
-                console.log(this.menu);
-                this.spinner = false;
-            });
+            data.shift();
+            console.log(data);
+            this.menu =  data;
+            this.spinner = false;
+        });
     };
-
-    this.dbCall();
 }
 
 app.component('mymenu', {

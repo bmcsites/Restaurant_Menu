@@ -1,5 +1,7 @@
-function menuItemController() {
-    let vm = this;
+class menuItemController {
+    constructor () {
+        let vm = this;
+    }
 }
 
 app.component('menuItem', {
