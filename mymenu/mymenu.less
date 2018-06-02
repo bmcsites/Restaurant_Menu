@@ -26,6 +26,8 @@ mymenu {
       background: rgba(0, 0, 0, 0.7);
       width: 100%;
       height: 100%;
+      z-index: 100;
+      display: block;
       .load-text {
         width: 100%;
         display: flex;
@@ -201,23 +203,18 @@ mymenu {
 }
 
 @media only screen and (max-width: 576px) {
-  mymenu {
-    .menu-box {
-      .menu-type {
-        .menu-item {
-          .menu-item-img {
-            display: none;
-          }
-          .menu-item-content {
-            width: 100%;
-            .mod .options {
-              display: block;
-            }
-            .menu-item-bottom {
-              font-size: 14px;
-            }
-          }
-        }
+
+  mymenu .menu-box .menu-type .menu-item {
+    .menu-item-img {
+      display: none;
+    }
+    .menu-item-content {
+      width: 100%;
+      .mod .options {
+        display: block;
+      }
+      .menu-item-bottom {
+        font-size: 14px;
       }
     }
   }
